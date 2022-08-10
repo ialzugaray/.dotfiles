@@ -1,15 +1,18 @@
 #!/bin/bash
-# From: https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#ubuntu-installation
-sudo apt-key del 7fa2af80 # Remove Outdated Signing Key
+# https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_network
 
-export DISTRO=ubuntu$(cat /etc/*release | head -n2 | tail -n1 | grep -o "[0-9][0-9].[0-9][0-9]*" | tr -d .)
-export MARCH=$(uname -m)
+DISTRO=ubuntu$(cat /etc/*release | head -n2 | tail -n1 | grep -o "[0-9][0-9].[0-9][0-9]*" | tr -d .)
+MARCH=$(uname -m)
+KEYRING_FILENAME=cuda-keyring_1.0-1_all.deb
+wget https://developer.download.nvidia.com/compute/cuda/repos/$DISTRO/$MARCH/$KEYRING_FILENAME
+sudo dpkg -i cuda-keyring_1.0-1_all.deb
+sudo apt-get update
+sudo apt-get -y install cuda
+rm $KEYRING_FILENAME
 
-wget https://developer.download.nvidia.com/compute/cuda/repos/$(DISTRO)/$(MARCH)/cuda-$(DISTRO).pin
-sudo mv cuda-$(DISTRO).pin /etc/apt/preferences.d/cuda-repository-pin-600
+echo ' # >>> CUDA Paths >>> ' >> ~/.bashrc
+echo 'export PATH="/usr/local/cuda-11.7/bin${PATH:+:${PATH}}"' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH="/usr/local/cuda-11.7/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"' >> ~/.bashrc
+echo -e ' # <<< CUDA Paths <<< \n ' >> ~/.bashrc
 
-sudo apt update
-sudo apt install -y cuda nvidia-utils-515 nvidia-gds nvidia-cuda-toolkit
-
-# sudo reboot
 

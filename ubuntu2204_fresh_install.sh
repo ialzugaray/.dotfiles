@@ -8,6 +8,7 @@ echo_section_header(){
 echo_section_header "Ubuntu Basics"
 sudo apt install linux-headers-$(uname -r) # Kernel headers
 sudo apt install -y build-essential # GCC
+sudo apt install -y cmake
 
 # Git
 echo_section_header "GIT & Public SSH key"
