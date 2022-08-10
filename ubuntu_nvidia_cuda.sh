@@ -9,7 +9,7 @@ wget https://developer.download.nvidia.com/compute/cuda/repos/$(DISTRO)/$(MARCH)
 sudo mv cuda-$(DISTRO).pin /etc/apt/preferences.d/cuda-repository-pin-600
 
 sudo apt update
-sudo apt install -y cuda nvidia-gds
+sudo apt install -y cuda nvidia-utils-515 nvidia-gds nvidia-cuda-toolkit
 
-sudo reboot
+# sudo reboot
 
