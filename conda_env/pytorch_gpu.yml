@@ -1,0 +1,21 @@
+name: pytorch_gpu
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.7
+  - pip
+  - jupyter
+  - ipykernel
+  - pillow
+  - numpy
+  - opencv
+  - pytorch
+  - torchvision
+  - cudatoolkit=11.6
+  - hydra-core 
+  - matplotlib
+  - plotly
+  - mediapy 
+  - kornia
+  - scikit-image
