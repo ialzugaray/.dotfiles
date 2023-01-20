@@ -11,6 +11,7 @@ sudo apt install -y build-essential # GCC
 sudo apt install -y cmake
 sudo apt install -y openssh-server # SSH Server
 sudo apt install -y curl 
+sudo apt install -y neovim 
 # Git
 echo_section_header "GIT & Public SSH key"
 bash git_with_ssh.sh
