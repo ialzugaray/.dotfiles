@@ -10,7 +10,7 @@ sudo apt install linux-headers-$(uname -r) # Kernel headers
 sudo apt install -y build-essential # GCC
 sudo apt install -y cmake
 sudo apt install -y openssh-server # SSH Server
-sudo apt install curl 
+sudo apt install -y curl 
 # Git
 echo_section_header "GIT & Public SSH key"
 bash git_with_ssh.sh
