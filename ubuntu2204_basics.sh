@@ -1,5 +1,5 @@
 #!/bin/bash
-# bash < (curl -s  https://raw.githubusercontent.com/ialzugaray/.dotfiles/master/ubuntu2204_fresh_install.sh)
+# bash < (curl -s  https://raw.githubusercontent.com/ialzugaray/.dotfiles/master/ubuntu2204_basics.sh)
 
 echo_section_header(){
 	echo -e "\n========================================\n"
@@ -30,38 +30,24 @@ curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mi
 bash Miniforge3-$(uname)-$(uname -m).sh
 rm -rf Miniforge3-$(uname)-$(uname -m).sh
 
-# VSCode
-sudo snap install --classic code 
+# Other apps
+sudo snap install --classic code  # VSCode
 code --install-extension ms-python.python 
 code --install-extension ms-toolsai.jupyter 
 code --install-extension ms-python.vscode-pylance
 code --install-extension ms-vscode.cpptools
 code --install-extension ms-vscode.cmake-tools
 
-# Teams
-sudo snap install teams
+sudo apt install -y ffmpeg # FFMPEG
+sudo apt install -y vlc # VLC
+sudo snap install inkscape # Inkscape
+sudo apt -y install neovim # Neovim
+sudo apt -y install tmux # Tmux
+sudo apt -y install terminator # Terminator
+sudo snap install teams-for-linux # Teams for Linux
+sudo snap install obsidian --classic # Obsidian
 
-# Zotero
-sudo snap install zotero-snap
-
-# FFMPEG
-sudo apt install -y ffmpeg
-
-# VLC
-sudo apt install -y vlc
-
-# Inkscape
-sudo snap install inkscape
-
-# Neovim
-sudo apt -y install neovim
-
-# Tmux
-sudo apt -y install tmux
-
-# Terminator
-sudo apt -y install terminator
-
-# Teams for Linux
-sudo snap install teams-for-linux
+# Repos
+git clone git@github.com:ialzugaray/vault.git
+git clone git@github.com:ialzugaray/.dotfiles.git
 
