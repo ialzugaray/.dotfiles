@@ -4,7 +4,7 @@ eval "$(conda shell.bash hook)"
 
 if [[ $# -eq 2 ]] && [[ $1 == "--install" ]]; then
 
-        alias_str="alias reconda=\"bash $PWD/reconda.sh\""
+        alias_str="alias reconda=\"source $PWD/reconda.sh\""
 	if [[ $2 == "bash" ]] || [[ 2 == "sh" ]]; then 
 		echo "Installing for bash"
 		echo $alias_str >> ~/.bashrc
