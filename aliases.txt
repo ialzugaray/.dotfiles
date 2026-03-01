@@ -1,0 +1,2 @@
+alias get_pytorch_version="python -c \"import torch; print(torch.__version__)\""
+alias get_pytorch_cuda_version="python -c \"import torch; print(torch.cuda.version)\""
